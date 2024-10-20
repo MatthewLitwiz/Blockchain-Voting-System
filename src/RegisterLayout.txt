@@ -1,0 +1,55 @@
+Step-by-Step Implementation of the Registration Page
+1. Create User.java (Model)
+The User class will hold the user details that are required for registration.
+
+What it should contain:
+
+Fields for user information (e.g., ID, name, email, hashed password).
+A constructor to initialize these fields.
+
+
+Getter and setter methods for accessing and modifying these fields.
+Optional: A method to display user details (for testing/debugging purposes).
+2. Create RegisterService.java (Authentication)
+The RegisterService class will manage the registration logic. It will interact with the database and validate inputs before adding new users.
+
+What it should contain:
+
+registerUser() method:
+Takes user input for name, email, and password.
+Validates input (e.g., checks if email is valid and not already registered).
+Hashes the password using the HashingUtils class.
+Adds the user to the database using the DatabaseUtils class.src/RegisterLayout.txt
+Returns success or failure messages based on the registration outcome.
+checkIfUserExists() method:
+Queries the database to check if the provided email already exists.
+validateInput() method:
+Validates email format and checks if password meets security requirements.
+3. Update DatabaseUtils.java
+You need to ensure the database utilities support adding and querying user records.
+
+What it should contain:
+
+addUser() method:
+Executes an SQL query to insert a new user record into the users table.
+Returns a success or error status.
+getUserByEmail() method:
+Executes a query to retrieve a user by email, used to check if a user already exists.
+4. Create HashingUtils.java
+This utility class will securely hash passwords and validate them during login.
+
+What it should contain:
+
+hashPassword() method:
+Hashes a plain-text password using a secure algorithm (e.g., SHA-256 or bcrypt).
+verifyPassword() method:
+Compares a plain-text password with a hashed password for validation.
+5. Console-based Interface (Registration)
+To complete the registration process, you'll create a simple console interface in the RegisterService:
+
+Steps for the console flow:
+
+Prompt the user for their name, email, and password.
+Call validateInput() to ensure data meets the required criteria.
+Check if the email already exists using checkIfUserExists().
+If valid, hash the password and store the user details in the database using addUser().

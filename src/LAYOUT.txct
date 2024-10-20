@@ -1,0 +1,84 @@
+│   │   │   ├── com/
+│   │   │   │   ├── voting/
+│   │   │   │   │   ├── authentication/
+│   │   │   │   │   │   ├── LoginService.java
+│   │   │   │   │   │   ├── RegisterService.java
+│   │   │   │   │   ├── blockchain/
+│   │   │   │   │   │   ├── Block.java
+│   │   │   │   │   │   ├── Blockchain.java
+│   │   │   │   │   │   ├── Vote.java
+│   │   │   │   │   ├── controllers/
+│   │   │   │   │   │   ├── VotingController.java
+│   │   │   │   │   ├── models/
+│   │   │   │   │   │   ├── User.java
+│   │   │   │   │   │   ├── Candidate.java
+│   │   │   │   │   ├── utils/
+│   │   │   │   │   │   ├── DatabaseUtils.java
+│   │   │   │   │   │   ├── HashingUtils.java
+│   │   │   │   │   │   ├── InputUtils.java
+│   ├── resources/
+│   │   ├── application.properties
+│   │   ├── sql/
+│   │   │   ├── schema.sql
+│   │   │   ├── data.sql
+├── tests/
+│   ├── authentication/
+│   │   ├── LoginTest.java
+│   │   ├── RegisterTest.java
+│   ├── blockchain/
+│   │   ├── BlockchainTest.java
+└── README.md
+
+
+
+----------------------------------------------------------------------------
+
+
+ Backend and Application Logic
+src/main/java/com/voting/:
+authentication/:
+
+LoginService.java: Handles login operations and user authentication.
+RegisterService.java: Manages user registration, including input validation and storing user data securely.
+blockchain/:
+
+Block.java: Represents a block in the blockchain.
+Blockchain.java: Manages the blockchain and provides methods for adding blocks and validating the chain.
+Vote.java: Represents a vote transaction, containing the voter ID and candidate information.
+controllers/:
+
+VotingController.java: Manages voting-related operations, such as casting votes and interacting with the blockchain.
+models/:
+
+User.java: Represents a user object with fields like ID, name, email, and password.
+Candidate.java: Represents a candidate with fields like ID, name, and party.
+utils/:
+
+DatabaseUtils.java: Manages database connections and CRUD operations using Java’s JDBC.
+HashingUtils.java: Handles password hashing using secure algorithms like SHA-256 or bcrypt.
+InputUtils.java: Utility class for handling and validating user input from the console.
+2. Resources
+application.properties: Contains configuration details like database settings.
+sql/schema.sql: SQL script for creating tables (users, votes, candidates).
+sql/data.sql: SQL script for seeding initial data like candidates.
+3. Tests
+tests/authentication/:
+LoginTest.java: Unit tests for login functionality.
+RegisterTest.java: Unit tests for registration functionality.
+tests/blockchain/:
+BlockchainTest.java: Unit tests for blockchain functionality (e.g., adding blocks, validating the chain).
+4. Frontend (Console-based)
+Since you're using only Java, you can start with a console-based interface and later move to a graphical interface using JavaFX if desired. For now, the console-based application will include:
+
+Login/Register Menu: Prompt the user to log in or register.
+Voting Menu: Display candidates and allow the user to vote.
+View Results: Allow users to view the current voting results if authenticated.
+5. Build Configuration
+build.gradle or pom.xml: A build configuration file for managing dependencies (e.g., JDBC drivers for database access, security libraries for hashing).
+README.md: A documentation file to guide you or other developers through the setup and usage of the project.
+Next Steps
+Set Up the Java Project Structure: Create the folders and files as described above.
+Implement the Console-based Registration and Login System:
+Start with User.java in the models package and build the RegisterService and LoginService in the authentication package.
+Use HashingUtils.java for password hashing.
+Set Up a Simple Database: Connect your Java app to an SQLite or other lightweight database using DatabaseUtils.java for storing user and vote data.
